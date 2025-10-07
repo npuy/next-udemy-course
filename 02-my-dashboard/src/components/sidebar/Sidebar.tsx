@@ -3,6 +3,7 @@ import {
   IoBrowsersOutline,
   IoCalculator,
   IoFootball,
+  IoHeart,
   IoLogoReact,
 } from "react-icons/io5";
 import { SidebarMenuItem, SidebarMenuItemProps } from "./SidebarMenuItem";
@@ -24,7 +25,13 @@ const menuItems: SidebarMenuItemProps[] = [
     path: "/dashboard/pokemons",
     icon: <IoFootball size={40} />,
     title: "Pokemons",
-    subTitle: "Static generation",
+    subTitle: "Static Generation",
+  },
+  {
+    path: "/dashboard/favorites",
+    icon: <IoHeart size={40} />,
+    title: "Favorites",
+    subTitle: "Global State",
   },
 ];
 
