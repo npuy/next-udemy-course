@@ -1,4 +1,5 @@
 export { PokemonGrid } from "./components/PokemonGrid";
+export { FavoritesGrid } from "./components/FavoritesGrid";
 
 export type { PokemonsResponse } from "./interfaces/pokemons.response";
 export type { SimplePokemon } from "./interfaces/simple-pokemon";
