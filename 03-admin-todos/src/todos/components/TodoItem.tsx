@@ -1,6 +1,7 @@
 "use client";
 
 import { Todo } from "@prisma/client";
+import { startTransition, useOptimistic } from "react";
 import { IoCheckboxOutline, IoSquareOutline } from "react-icons/io5";
 
 interface Props {
@@ -10,6 +11,24 @@ interface Props {
 }
 
 export const TodoItem = ({ todo, toggleTodo }: Props) => {
+  const [todoOpt, toggleTodoOpt] = useOptimistic(
+    todo,
+    (state, newCompleteValue: boolean) => ({
+      ...state,
+      complete: newCompleteValue,
+    })
+  );
+
+  const onToggleTodo = () => {
+    try {
+      startTransition(() => toggleTodoOpt(!todoOpt.complete));
+      toggleTodo(todo.id, !todoOpt.complete);
+    } catch (e) {
+      console.error(e);
+      startTransition(() => toggleTodoOpt(!todoOpt.complete));
+    }
+  };
+
   return (
     <div
       className={
@@ -20,7 +39,8 @@ export const TodoItem = ({ todo, toggleTodo }: Props) => {
     >
       <div className="flex flex-col sm:flex-row justify-center gap-4">
         <div
-          onClick={() => toggleTodo(todo.id, !todo.complete)}
+          // onClick={() => toggleTodo(todo.id, !todo.complete)}
+          onClick={onToggleTodo}
           className={`flex p-2 rounded-md cursor-pointer 
             hover:bg-opacity-60 
             ${todo.complete ? "bg-blue-100" : "bg-red-100"}`}
