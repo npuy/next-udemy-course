@@ -23,6 +23,11 @@ This command will start the PostgreSQL database in a Docker container.
 
 7. Execute [SEED](localhost:3000/api/seed) to create local data base
 
+## Note: default user
+
+**user:** test@mail.com
+**password:** 1234
+
 # Prisma commands
 
 ```
