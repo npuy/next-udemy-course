@@ -30,7 +30,7 @@ export const ProductGridItem = ({ product }: ProductGridItemProps) => {
         <Link href={`/product/${product.slug}`} className="hover:text-blue-600">
           {product.title}
         </Link>
-        <span className="font-bold">${product.price}</span>
+        <span className="font-bold">${product.price.toFixed(2)}</span>
       </div>
     </div>
   );
