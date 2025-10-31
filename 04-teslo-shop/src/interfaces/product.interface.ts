@@ -1,5 +1,5 @@
 export interface Product {
-  // TODO: id: string;
+  id: string;
   description: string;
   images: string[];
   inStock: number;
@@ -8,10 +8,10 @@ export interface Product {
   slug: string;
   tags: string[];
   title: string;
-  type: Type;
-  gender: ProductCategory;
+  // type: Type; // TODO:
+  gender: Gender;
 }
 
-export type ProductCategory = "men" | "women" | "kid" | "unisex";
+export type Gender = "men" | "women" | "kid" | "unisex";
 export type Size = "XS" | "S" | "M" | "L" | "XL" | "XXL" | "XXXL";
 export type Type = "shirts" | "pants" | "hoodies" | "hats";
