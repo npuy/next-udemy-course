@@ -41,6 +41,7 @@ export const ProductMobileSlideshow = ({
               alt={title}
               width={1024}
               height={800}
+              loading="eager"
               className="object-fill"
             />
           </SwiperSlide>

@@ -50,6 +50,7 @@ export const ProductSlideshow = ({
               alt={title}
               width={1024}
               height={800}
+              loading="eager"
               className="rounded-lg object-fill"
             />
           </SwiperSlide>
