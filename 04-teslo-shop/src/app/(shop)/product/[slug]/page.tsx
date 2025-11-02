@@ -7,11 +7,10 @@ import { getProductBySlug } from "@/actions";
 import {
   ProductMobileSlideshow,
   ProductSlideshow,
-  QuantitySelector,
-  SizeSelector,
   StockLabel,
 } from "@/components";
 import { titleFont } from "@/config/fonts";
+import { AddToCart } from "./ui/AddToCart";
 
 interface ProductPageProps {
   params: Promise<{
@@ -68,17 +67,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
         </h1>
         <p className="text-lg mb-5">${product.price.toFixed(2)}</p>
 
-        {/* Size selector */}
-        <SizeSelector
-          selectedSize={product.sizes[1]}
-          availableSizes={product.sizes}
-        />
-
-        {/* Quantity selector */}
-        <QuantitySelector quantity={1} />
-
-        {/* Button */}
-        <button className="btn-primary my-5">Add to cart</button>
+        <AddToCart product={product} />
 
         {/* Description */}
         <h3 className="font-bold text-sm">Description</h3>

@@ -2,13 +2,16 @@ import { Size } from "@/interfaces";
 import clsx from "clsx";
 
 interface SizeSelectorProps {
-  selectedSize: Size;
+  selectedSize?: Size;
   availableSizes: Size[];
+
+  onSizeSelect: (size: Size) => void;
 }
 
 export const SizeSelector = ({
   selectedSize,
   availableSizes,
+  onSizeSelect,
 }: SizeSelectorProps) => {
   return (
     <div className="my-5">
@@ -18,6 +21,7 @@ export const SizeSelector = ({
         {availableSizes.map((size) => (
           <button
             key={size}
+            onClick={() => onSizeSelect(size)}
             className={clsx("mx-2 hover:underline text-lg", {
               "font-bold underline": selectedSize === size,
             })}

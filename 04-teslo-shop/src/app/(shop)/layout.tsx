@@ -1,4 +1,5 @@
 import { Footer, Sidebar, TopMenu } from "@/components";
+import { Hydration } from "@/store";
 
 export default function ShopLayout({
   children,
@@ -7,6 +8,7 @@ export default function ShopLayout({
 }>) {
   return (
     <main>
+      <Hydration />
       <TopMenu />
       <Sidebar />
 
