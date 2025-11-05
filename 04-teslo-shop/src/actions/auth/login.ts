@@ -11,7 +11,11 @@ export async function authenticate(
 ) {
   try {
     console.log(Object.fromEntries(formData));
-    await signIn("credentials", formData);
+    await signIn("credentials", {
+      ...Object.fromEntries(formData),
+      redirect: false,
+    });
+    return "Success";
   } catch (error) {
     if (error instanceof AuthError) {
       switch (error.type) {
@@ -24,3 +28,17 @@ export async function authenticate(
     throw error;
   }
 }
+
+export const login = async (email: string, password: string) => {
+  try {
+    await signIn("credentials", { email: email.toLowerCase(), password });
+
+    return { ok: true };
+  } catch (error) {
+    console.log(error);
+    return {
+      ok: false,
+      message: "Cannot login",
+    };
+  }
+};

@@ -1,17 +1,22 @@
 "use client";
 
 import Link from "next/link";
-import { useActionState } from "react";
+import { useActionState, useEffect } from "react";
+import { IoAlertCircleOutline } from "react-icons/io5";
 
 import { authenticate } from "@/actions";
-import { IoAlertCircleOutline } from "react-icons/io5";
 
 export const LoginForm = () => {
   const [errorMessage, formAction, isPending] = useActionState(
     authenticate,
     undefined
   );
-  console.log({ errorMessage });
+  useEffect(() => {
+    if (errorMessage === "Success") {
+      // redireccionar
+      window.location.replace("/");
+    }
+  }, [errorMessage]);
 
   return (
     <form action={formAction} className="flex flex-col">
@@ -28,7 +33,7 @@ export const LoginForm = () => {
         type="password"
         name="password"
       />
-      {errorMessage && (
+      {errorMessage !== "Success" && errorMessage && (
         <div
           className="flex h-8 items-end space-x-1 py-2"
           aria-live="polite"
