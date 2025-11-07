@@ -10,7 +10,6 @@ export async function authenticate(
   formData: FormData
 ) {
   try {
-    console.log(Object.fromEntries(formData));
     await signIn("credentials", {
       ...Object.fromEntries(formData),
       redirect: false,
@@ -35,7 +34,7 @@ export const login = async (email: string, password: string) => {
 
     return { ok: true };
   } catch (error) {
-    console.log(error);
+    console.error(error);
     return {
       ok: false,
       message: "Cannot login",

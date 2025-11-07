@@ -74,3 +74,19 @@ body {
 .btn-secondary:hover {
   background-color: #d1d5db; /* hover:bg-gray-300 */
 }
+
+.btn-disabled {
+  background-color: #93c5fd; /* bg-blue-400 */
+  color: #ffffff; /* text-white */
+  padding-top: 0.5rem; /* py-2 */
+  padding-bottom: 0.5rem;
+  padding-left: 1rem; /* px-4 */
+  padding-right: 1rem;
+  border-radius: 0.25rem; /* rounded */
+  transition: all 0.2s ease; /* transition-all */
+  cursor: not-allowed;
+}
+
+.btn-disabled:hover {
+  background-color: #93c5fd; /* bg-blue-400 */
+}

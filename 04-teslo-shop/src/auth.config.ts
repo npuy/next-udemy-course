@@ -27,11 +27,8 @@ export const authConfig: NextAuthConfig = {
       return session;
     },
     authorized({ auth, request: { nextUrl } }) {
-      console.log({ auth });
-      console.log(nextUrl.pathname);
       const isLoggedIn = !!auth?.user;
       const isOnPrivate = nextUrl.pathname.startsWith("/checkout/address");
-      console.log({ isLoggedIn, isOnPrivate });
       if (isOnPrivate) {
         if (isLoggedIn) return true;
         return false; // Redirect unauthenticated users to login page

@@ -77,8 +77,35 @@ model User {
   email         String    @unique
   emailVerified DateTime?
   password      String
-  role          Role      @default(user)
   image         String?
 
+  role Role @default(user)
+
+  userAddresses UserAddress?
+
   @@index([email])
+}
+
+model Country {
+  id   String @id
+  name String @unique
+
+  userAddresses UserAddress[]
+}
+
+model UserAddress {
+  id         String  @id @default(uuid())
+  firstName  String
+  lastName   String
+  address    String
+  address2   String?
+  postalCode String
+  city       String
+  phone      String
+
+  country   Country @relation(fields: [countryId], references: [id])
+  countryId String
+
+  user   User   @relation(fields: [userId], references: [id])
+  userId String @unique
 }

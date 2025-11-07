@@ -30,7 +30,7 @@ export const registerUser = async (
       message: "User registered successfully",
     };
   } catch (error) {
-    console.log(error);
+    console.error(error);
 
     return {
       ok: false,
