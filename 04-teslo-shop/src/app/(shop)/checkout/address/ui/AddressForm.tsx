@@ -67,14 +67,15 @@ export const AddressForm = ({
   const onSubmit = (data: FormInputs) => {
     console.log({ data });
 
-    setAddress(data);
     const { rememberAddress, ...rest } = data;
+    setAddress(rest);
 
     if (rememberAddress) {
       setUserAddress(rest, session.user.id);
     } else {
       deleteUserAddress(session.user.id);
     }
+    redirect("/checkout");
   };
 
   return (

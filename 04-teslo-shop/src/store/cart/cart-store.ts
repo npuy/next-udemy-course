@@ -18,6 +18,7 @@ interface State {
   addProductToCart: (product: CartProduct) => void;
   removeProductFromCart: (product: CartProduct) => void;
   updateProductQuantity: (product: CartProduct, quantity: number) => void;
+  clearCart: () => void;
 }
 
 function calculateOrderSummary(cart: CartProduct[]): OrderSummaryInformation {
@@ -52,6 +53,10 @@ export const useCartStore = create<State>()(
         tax: 0,
         taxRate: 0,
         total: 0,
+      },
+
+      clearCart: () => {
+        set({ cart: [] });
       },
 
       getTotalItems: () => {

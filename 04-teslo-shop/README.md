@@ -6,4 +6,5 @@
 4. Levantar la base de datos `npm run prisma:up`
 5. Correr las migraciones de Prisma `npm run prisma:migrate`
 6. Ejecutar seed `npm run prisma:seed`
-7. Correr el proyecto `npm run dev`
+7. Limpiar LocalStorage del navegador.
+8. Correr el proyecto `npm run dev`
