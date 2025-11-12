@@ -13,6 +13,7 @@
     "prisma:studio": "prisma studio"
   },
   "dependencies": {
+    "@paypal/react-paypal-js": "^8.9.2",
     "@prisma/client": "^6.18.0",
     "@prisma/extension-accelerate": "^2.0.2",
     "bcryptjs": "^3.0.3",

@@ -15,4 +15,6 @@ export * from "./product/slideshow/ProductSlideshow";
 export * from "./product/slideshow/ProductMobileSlideshow";
 export * from "./product/stock-label/StockLabel";
 // Providers
-export * from "./provider/Provider";
+export * from "./providers/Providers";
+// PayPal
+export * from "./paypal/PayPalButton";
