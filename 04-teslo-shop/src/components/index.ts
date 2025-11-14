@@ -18,3 +18,5 @@ export * from "./product/stock-label/StockLabel";
 export * from "./providers/Providers";
 // PayPal
 export * from "./paypal/PayPalButton";
+// Orders Components
+export * from "./orders/OrderStatus";

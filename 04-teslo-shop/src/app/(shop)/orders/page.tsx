@@ -8,7 +8,6 @@ import { IoCardOutline } from "react-icons/io5";
 export default async function OrdersPage() {
   const { ok, orders = [], message } = await getOrderByUser();
 
-  console.log({ ok, message });
   if (!ok) return redirect("/auth/login");
 
   return (

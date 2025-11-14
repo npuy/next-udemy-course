@@ -65,8 +65,6 @@ export const AddressForm = ({
   }
 
   const onSubmit = (data: FormInputs) => {
-    console.log({ data });
-
     const { rememberAddress, ...rest } = data;
     setAddress(rest);
 

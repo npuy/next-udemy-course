@@ -26,7 +26,6 @@ export const PlaceOrder = () => {
       quantity: product.quantity,
       size: product.size,
     }));
-    console.log({ address, productsToOrder });
     const resp = await placeOrder(productsToOrder, address);
 
     if (!resp.ok) {
