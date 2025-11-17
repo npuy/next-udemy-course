@@ -1,4 +1,4 @@
-import { getOrderByUser } from "@/actions";
+import { getOrders } from "@/actions";
 import { Title } from "@/components";
 
 import Link from "next/link";
@@ -6,7 +6,7 @@ import { redirect } from "next/navigation";
 import { IoCardOutline } from "react-icons/io5";
 
 export default async function OrdersPage() {
-  const { ok, orders = [] } = await getOrderByUser();
+  const { ok, orders = [] } = await getOrders();
 
   if (!ok) return redirect("/auth/login");
 
