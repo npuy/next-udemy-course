@@ -1,8 +1,7 @@
 "use client";
 
-import Image from "next/image";
-
 import { useCartStore } from "@/store";
+import { ProductImage } from "@/components";
 
 export const ProductsInCart = () => {
   const productsInCart = useCartStore((state) => state.cart);
@@ -12,8 +11,8 @@ export const ProductsInCart = () => {
       {/* Items */}
       {productsInCart.map((product) => (
         <div key={`${product.size} - ${product.slug}`} className="flex mb-5">
-          <Image
-            src={`/products/${product.image}`}
+          <ProductImage
+            src={product.image}
             width={100}
             height={100}
             style={{

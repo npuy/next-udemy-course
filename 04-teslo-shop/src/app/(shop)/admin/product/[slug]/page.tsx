@@ -16,7 +16,7 @@ export default async function ProductPage({ params }: Props) {
     getCategories(),
   ]);
 
-  if (!product) notFound();
+  if (!product && slug !== "new") notFound();
 
   const title = slug === "new" ? "New product" : "Edit product";
 
@@ -24,7 +24,7 @@ export default async function ProductPage({ params }: Props) {
     <>
       <Title title={title} />
 
-      <ProductForm product={product} categories={categories} />
+      <ProductForm product={product || {}} categories={categories} />
     </>
   );
 }
